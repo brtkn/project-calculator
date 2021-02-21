@@ -1,0 +1,59 @@
+*, *::before, *::after {         /* select all the elements including before and after elements */
+    box-shadow: border-box ;             /* for better sizing */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+}
+
+body {
+    padding: 0;   /* remove the padding and margin =>in this way background image can fill the entire screen */
+    margin: 0;
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;      /* center of the screen */
+    align-content: center;       /* change align items to content buttons come together*/
+    min-height: 100vh;       /* it is gonna fill 100% of all the height*/
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5,100px);  /* min 120px max auto if user enters a very large number it will automatically expend */
+}
+
+.calculator-grid > button {     /* select all the buttons inside grid */
+
+    cursor: pointer;
+    font-size: 2rem;    /* the root element's font size */
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);   /* .75 opacity */
+}
+
+.calculator-grid > button:hover {
+    background-color: rgba(255, 255, 255, .9) ;
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1;   /* -1 means last column */
+    background-color: rgba(0, 0, 0, .75); 
+    display: flex;        /* to align our elements in container */
+    align-items: flex-end;  /* right */
+    justify-content: space-around;
+    flex-direction: column;      /* not horizontally vertical placement */
+    padding: 10px;
+    word-wrap: break-word;    /* break word in the middle */
+    word-break: break-all;     /* break all the words */
+}
+
+.output .previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
